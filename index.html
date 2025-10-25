@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barovian Moon Calendar</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="calendar-container">
+    <h1>Barovian Moon Calendar</h1>
+
+    <div class="calendar-column">
+      <!-- Current Campaign Day -->
+      <div class="moon-display">
+        <div class="moon"></div>
+        <p id="moon-name"></p>
+        <p id="moon-effect"></p>
+      </div>
+      <h2 id="day-display">Campaign Day: 1</h2>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button id="prevDay">Previous Day</button>
+        <button id="nextDay">Next Day</button>
+      </div>
+
+      <div class="jump">
+        <input type="number" id="jumpInput" min="1" placeholder="Enter day #" />
+        <button id="jumpButton">Jump to Day</button>
+      </div>
+
+      <!-- Dice Roller -->
+      <div class="dice-roller">
+        <label for="diceType">Roll Dice:</label>
+        <select id="diceType">
+          <option value="4">d4</option>
+          <option value="6">d6</option>
+          <option value="8">d8</option>
+          <option value="10">d10</option>
+          <option value="12">d12</option>
+          <option value="20" selected>d20</option>
+        </select>
+        <button id="rollDice">Roll</button>
+        <span id="diceResult"></span>
+      </div>
+
+      <!-- Calendar Grid -->
+      <div class="calendar" id="calendar-grid">
+        <div class="day-name">Sun</div>
+        <div class="day-name">Mon</div>
+        <div class="day-name">Tue</div>
+        <div class="day-name">Wed</div>
+        <div class="day-name">Thu</div>
+        <div class="day-name">Fri</div>
+        <div class="day-name">Sat</div>
+      </div>
+
+      <!-- Map Button -->
+      <div class="map-container">
+        <button id="showMap">Show Map</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notes Modal -->
+  <div id="notesModal" class="modal">
+    <div class="modal-content">
+      <span id="closeNotes" class="close">&times;</span>
+      <h2>Notes for Day <span id="modalDay">1</span></h2>
+      <textarea id="modalNotes" placeholder="Write notes for this day..."></textarea>
+      <button id="saveNotes">Save Notes</button>
+    </div>
+  </div>
+
+  <!-- Map Modal -->
+  <div id="mapModal" class="modal">
+    <div class="modal-content">
+      <span id="closeMap" class="close">&times;</span>
+      <h2>Barovia Map</h2>
+      <img src="images/barovia.png" alt="Barovia Map" />
+    </div>
+  </div>
+</body>
+</html>
