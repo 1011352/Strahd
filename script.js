@@ -492,21 +492,3 @@ window.addEventListener("click", (e) => {
 // --- Initialize ---
 updateCalendar();
 renderQuests();
-
-// Add a welcome message on first load
-if (!localStorage.getItem("hasVisited")) {
-  setTimeout(() => {
-    alert("Welcome to the Barovian Moon Calendar!\n\n" +
-          "🌙 Track your campaign days\n" +
-          "📝 Click any day to add notes and events\n" +
-          "✅ Manage quests on the left\n" +
-          "🎲 Roll dice for encounters\n" +
-          "🗺️ View the map of Barovia\n\n" +
-          "May Strahd show you mercy...");
-    try {
-      localStorage.setItem("hasVisited", "true");
-    } catch (e) {
-      console.log("Welcome message shown");
-    }
-  }, 500);
-}
