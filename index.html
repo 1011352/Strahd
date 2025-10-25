@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barovian Moon Calendar</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barovian Moon Calendar</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="calendar-container">
-    <h1>Barovian Moon Calendar</h1>
+<div class="calendar-container">
 
+  <h1>Barovian Moon Calendar</h1>
+
+  <div class="main">
+    <!-- Quest Board -->
+    <div class="quest-board">
+      <h2>Quest Board</h2>
+      <div class="quest-input-group">
+        <input type="text" id="new-quest" placeholder="New quest...">
+        <input type="number" id="quest-day" min="1" max="29" placeholder="Day # (optional)">
+        <button id="add-quest">Add Quest</button>
+      </div>
+      <ul id="quest-list"></ul>
+
+      <h3>Completed Quests</h3>
+      <ul id="done-quest-list"></ul>
+    </div>
+
+    <!-- Calendar Column -->
     <div class="calendar-column">
-      <!-- Current Campaign Day -->
       <div class="moon-display">
         <div class="moon"></div>
         <p id="moon-name"></p>
         <p id="moon-effect"></p>
       </div>
+
       <h2 id="day-display">Campaign Day: 1</h2>
 
-      <!-- Controls -->
       <div class="controls">
-        <button id="prevDay">Previous Day</button>
-        <button id="nextDay">Next Day</button>
+        <button id="prevDay">◄ Previous Day</button>
+        <button id="nextDay">Next Day ►</button>
       </div>
 
       <div class="jump">
-        <input type="number" id="jumpInput" min="1" placeholder="Enter day #" />
+        <input type="number" id="jumpInput" min="1" placeholder="Enter day #">
         <button id="jumpButton">Jump to Day</button>
       </div>
 
@@ -41,46 +56,67 @@
           <option value="10">d10</option>
           <option value="12">d12</option>
           <option value="20" selected>d20</option>
+          <option value="100">d100</option>
         </select>
-        <button id="rollDice">Roll</button>
+        <button id="rollDice">🎲 Roll</button>
         <span id="diceResult"></span>
       </div>
 
       <!-- Calendar Grid -->
-      <div class="calendar" id="calendar-grid">
-        <div class="day-name">Sun</div>
-        <div class="day-name">Mon</div>
-        <div class="day-name">Tue</div>
-        <div class="day-name">Wed</div>
-        <div class="day-name">Thu</div>
-        <div class="day-name">Fri</div>
-        <div class="day-name">Sat</div>
-      </div>
+      <div class="calendar" id="calendar-grid"></div>
 
-      <!-- Map Button -->
       <div class="map-container">
-        <button id="showMap">Show Map</button>
+        <button id="showMap">🗺️ Show Map</button>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Notes Modal -->
-  <div id="notesModal" class="modal">
-    <div class="modal-content">
-      <span id="closeNotes" class="close">&times;</span>
-      <h2>Notes for Day <span id="modalDay">1</span></h2>
-      <textarea id="modalNotes" placeholder="Write notes for this day..."></textarea>
-      <button id="saveNotes">Save Notes</button>
+<!-- Notes / Events Modal -->
+<div id="notesModal" class="modal">
+  <div class="modal-content">
+    <span id="closeNotes" class="close">&times;</span>
+    <h2>Day <span id="modalDay">1</span></h2>
+    
+    <h3>Notes</h3>
+    <textarea id="modalNotes" placeholder="Write notes for this day..."></textarea>
+    
+    <h3>Events</h3>
+    <ul id="event-list"></ul>
+    <div class="event-input-group">
+      <input type="text" id="new-event" placeholder="Add new event">
+      <select id="event-icon">
+        <option value="">No Icon</option>
+        <option value="🗡️">🗡️ Sword</option>
+        <option value="🛡️">🛡️ Shield</option>
+        <option value="🔥">🔥 Fire</option>
+        <option value="💀">💀 Skull</option>
+        <option value="✨">✨ Magic</option>
+        <option value="📜">📜 Scroll</option>
+        <option value="⚔️">⚔️ Combat</option>
+        <option value="🏰">🏰 Castle</option>
+        <option value="🌙">🌙 Moon</option>
+        <option value="⚡">⚡ Lightning</option>
+        <option value="🩸">🩸 Blood</option>
+        <option value="🦇">🦇 Bat</option>
+      </select>
+      <button id="add-event">Add Event</button>
     </div>
+    
+    <button id="saveNotes" class="save-btn">Save All</button>
   </div>
+</div>
 
-  <!-- Map Modal -->
-  <div id="mapModal" class="modal">
-    <div class="modal-content">
-      <span id="closeMap" class="close">&times;</span>
-      <h2>Barovia Map</h2>
-      <img src="images/barovia.png" alt="Barovia Map" />
-    </div>
+<!-- Map Modal -->
+<div id="mapModal" class="modal">
+  <div class="modal-content map-modal-content">
+    <span id="closeMap" class="close">&times;</span>
+    <h2>Barovia Map</h2>
+    <div class="map-instructions">Click to zoom | Drag to pan | Scroll to zoom</div>
+    <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=1200&h=800&fit=crop" alt="Barovia Map">
   </div>
+</div>
+
+<script src="script.js"></script>
 </body>
-</html>
+</html
